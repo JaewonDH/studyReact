@@ -26,11 +26,15 @@ export default function LeftMenu() {
     },
     {
       name: "list-api",
-      path: "/study/list-api",
+      path: "/study/list-api/1", // 라우터 param 1전달
     },
     {
       name: "State",
       path: "/study/state",
+    },
+    {
+      name: "ClassComponent",
+      path: "/study/class-component",
     },
   ];
 
@@ -57,7 +61,7 @@ export default function LeftMenu() {
               key={index}
               disablePadding
               onClick={() => {
-                navigate(menu.path, {});
+                navigate(menu.path, { state: { id: 1, name: "sabaoon" } });
               }}
             >
               <ListItemButton>

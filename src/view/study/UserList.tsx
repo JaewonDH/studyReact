@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../modules/axios";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
@@ -7,11 +7,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-
+import { useLocation, useParams } from "react-router-dom";
 const getList: Function = async (responseCallBack: Function) => {
   try {
     let response = await api.get("users");
-    console.log(response);
     const userList = response.data.map((user: any) => {
       return {
         id: user.id,
@@ -34,7 +33,13 @@ interface User {
 }
 
 const UserList: Function = (): JSX.Element => {
-  let [userList, setUserList] = useState<User[] | null>(null);
+  // 라우터 navigate 전달한 state 값
+  let location = useLocation();
+  // 라우터 param 1전달
+  const params = useParams();
+  console.log("location", location);
+  console.log("params", params);
+  let [userList, setUserList] = useState<User[]>([]);
 
   const responseCallBack = (userList: User[]): void => {
     setUserList(userList);
@@ -42,23 +47,21 @@ const UserList: Function = (): JSX.Element => {
 
   let list: JSX.Element[] = [];
 
-  if (userList == null) {
+  useEffect(() => {
     getList(responseCallBack);
-  } else {
-    list = userList.map((user) => {
-      return (
-        <div key={user.id}>
-          <span>id:{user.id} |</span>
-          <span>name:{user.name}|</span>
-          <span>username:{user.username}|</span>
-          <span>email:{user.email}</span>
-        </div>
-      );
-    });
-  }
+  }, []);
 
-  console.log("userList", userList);
-  console.log("list", list);
+  list = userList.map((user) => {
+    return (
+      <div key={user.id}>
+        <span>id:{user.id} |</span>
+        <span>name:{user.name}|</span>
+        <span>username:{user.username}|</span>
+        <span>email:{user.email}</span>
+      </div>
+    );
+  });
+
   return (
     <>
       <CssBaseline />

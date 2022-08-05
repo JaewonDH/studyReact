@@ -3,7 +3,7 @@ import LeftMenu from "../../component/LeftMenu";
 import Props from "./Props";
 import State from "./State";
 import UserList from "./UserList";
-
+import ClassComponent from "./ClassComponent";
 import Box from "@mui/material/Box";
 export default function Study() {
   return (
@@ -20,7 +20,8 @@ export default function Study() {
         <Route path="/" index={false} element={<Props />}></Route>
         <Route path="/props" element={<Props />}></Route>
         <Route path="/state" element={<State />}></Route>
-        <Route path="/list-api" element={<UserList />}></Route>
+        <Route path="/list-api/:id" element={<UserList />}></Route>
+        <Route path="/class-component" element={<ClassComponent />}></Route>
       </Routes>
     </Box>
   );
