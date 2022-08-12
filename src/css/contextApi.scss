@@ -1,0 +1,32 @@
+.container {
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&.header {
+		height: 20%;
+		background-color: gray;
+		margin: 65px 0 0 0;
+	}
+
+	&.body {
+		height: 50%;
+		background-color: white;
+	}
+
+	&.footer {
+		height: 30%;
+		background-color: gray;
+	}
+
+	&.black {
+		background-color: black;
+		color: white;
+	}
+}
+
+.mainContainer {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
