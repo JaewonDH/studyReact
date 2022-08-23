@@ -8,7 +8,7 @@ const CustomHook = () => {
       case ACTION_STATUS.ERROR:
         return <p>에러</p>;
       case ACTION_STATUS.SUCCESS:
-        if (dataInfo.userList == undefined) {
+        if (dataInfo.userList === undefined) {
           return "";
         }
         return dataInfo.userList.map((user) => {
