@@ -8,6 +8,7 @@ import UserHook from "view/study/UserHook";
 import Box from "@mui/material/Box";
 import UseReducer from "view/study/UseReducer";
 import Reduex from "view/study/Reduex";
+import Currying from "./reduex/Currying";
 
 export default function Study() {
   return (
@@ -29,6 +30,7 @@ export default function Study() {
         <Route path="/user" element={<UserHook />}></Route>
         <Route path="/useReducer" element={<UseReducer />}></Route>
         <Route path="/reduex" element={<Reduex />}></Route>
+        <Route path="/currying" element={<Currying />}></Route>
       </Routes>
     </Box>
   );

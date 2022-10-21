@@ -48,6 +48,10 @@ export default function LeftMenu() {
       name: "(Reduex)",
       path: "/study/reduex",
     },
+    {
+      name: "(Currying Pattern)",
+      path: "/study/currying",
+    },
   ];
 
   return (
